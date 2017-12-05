@@ -13,6 +13,10 @@ case class Query(
 ) extends Serializable
 
 
+case class ActualResult(
+ val queryResults: String
+) extends Serializable
+
 case class PredictedResult(
   val queryResults: String
 ) extends Serializable
