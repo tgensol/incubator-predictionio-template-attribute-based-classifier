@@ -72,11 +72,11 @@ class NLPAlgorithm(val ap: AlgorithmParams)
   def predict(model: Model, query: Query): PredictedResult = {
     
     val cl = model.cl
-    /*var line = ""
-    for (line <- ObjectBank.getLineIterator("data/medtest.test", "utf-8")) {
-      val dd = cdc.makeDatumFromLine(line);
-      System.out.println(line + " ==> " + cl.classOf(dd));
-    }*/
+    // /*var line = ""
+    // for (line <- ObjectBank.getLineIterator("data/medtest.test", "utf-8")) {
+    //   val dd = cdc.makeDatumFromLine(line);
+    //   System.out.println(line + " ==> " + cl.classOf(dd));
+    // }*/
 
 
     var line = "\t" + query.text + "\t"
@@ -84,9 +84,9 @@ class NLPAlgorithm(val ap: AlgorithmParams)
     line += query.gender + "\t"
     if (query.replyTo.isEmpty) line += "unknown"
     line += query.replyTo + "\t"
-    if (query.bdate.isEmpty) line += -1
+    if (query.bdate.isEmpty) line += "unknown"
     line += query.bdate + "\t"
-    if (query.lang.isEmpty) line += -1
+    if (query.lang.isEmpty) line += "unknown"
     line += query.lang + "\t";
     if (query.platform.isEmpty) line += "unknown"
     line += query.platform + "\t"

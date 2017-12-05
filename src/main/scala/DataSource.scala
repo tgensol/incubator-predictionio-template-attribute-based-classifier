@@ -25,12 +25,12 @@ class DataSource(val dsp: DataSourceParams)
   
     val eventsRDD: RDD[Event] = PEventStore.find(
       appName = dsp.appName,
-      entityType = Some("choose"),
-      eventNames = Some(List("contact"))
+      entityType = Some("contact"),
+      eventNames = Some(List("choose"))
     )(sc).cache()
 
     val labeledPoints: RDD[TextClass] = eventsRDD
-      .filter {event => event.event == "contact"}
+      .filter {event => event.event == "choose"}
       .map { event =>
 
       try {
@@ -38,8 +38,8 @@ class DataSource(val dsp: DataSourceParams)
           text_type = event.entityId,
           text = event.properties.get[String]("text"),
           replyTo = event.properties.getOpt[String]("replyTo"),
-          gender = event.properties.getOpt[Number]("gender"),
-          bdate = event.properties.getOpt[Number]("bdate"),
+          gender = event.properties.getOpt[String]("gender"),
+          bdate = event.properties.getOpt[String]("bdate"),
           lang = event.properties.getOpt[String]("lang"),
           platform = event.properties.getOpt[String]("platform")
         ) 
@@ -58,8 +58,8 @@ class DataSource(val dsp: DataSourceParams)
   : Seq[(TrainingData, EmptyEvaluationInfo, RDD[(Query, ActualResult)])] = {
     val eventsRDD: RDD[Event] = PEventStore.find(
       appName = dsp.appName,
-      entityType = Some("choose"),
-      eventNames = Some(List("contact"))
+      entityType = Some("contact"),
+      eventNames = Some(List("choose"))
     )(sc).cache()
 
     val labeledPoints: RDD[TextClass] = eventsRDD
@@ -71,8 +71,8 @@ class DataSource(val dsp: DataSourceParams)
           text_type = event.entityId,
           text = event.properties.get[String]("text"),
           replyTo = event.properties.getOpt[String]("replyTo"),
-          gender = event.properties.getOpt[Number]("gender"),
-          bdate = event.properties.getOpt[Number]("bdate"),
+          gender = event.properties.getOpt[String]("gender"),
+          bdate = event.properties.getOpt[String]("bdate"),
           lang = event.properties.getOpt[String]("lang"),
           platform = event.properties.getOpt[String]("platform")
         ) 
@@ -103,8 +103,8 @@ case class TextClass(
   val text_type: String,
   val text: String,
   val replyTo: Option[String],
-  val gender: Option[Number],
-  val bdate: Option[Number],
+  val gender: Option[String],
+  val bdate: Option[String],
   val lang: Option[String],
   val platform: Option[String]
 )
