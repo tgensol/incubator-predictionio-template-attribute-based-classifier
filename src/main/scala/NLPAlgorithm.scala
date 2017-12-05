@@ -1,4 +1,4 @@
-package org.example.classification
+package org.template.classification
 
 import org.apache.predictionio.controller.PAlgorithm
 import org.apache.predictionio.controller.Params

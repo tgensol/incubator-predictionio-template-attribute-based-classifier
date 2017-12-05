@@ -1,7 +1,9 @@
 package org.apache.spark.mllib.classification
+// This must be the same package as Spark's MatrixFactorizationModel because
+// MatrixFactorizationModel's constructor is private and we are using
+// its constructor in order to save and load the model
 
-
-import org.example.classification.AlgorithmParams
+import org.template.classification.AlgorithmParams
 
 import org.apache.predictionio.controller.IPersistentModel
 import org.apache.predictionio.controller.IPersistentModelLoader

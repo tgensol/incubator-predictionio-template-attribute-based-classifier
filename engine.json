@@ -1,7 +1,7 @@
 {
     "id": "default",
     "description": "Default settings",
-    "engineFactory": "org.example.classification.ClassificationEngine",
+    "engineFactory": "org.template.classification.ClassificationEngine",
     "datasource": {
         "params": {
             "appName": "CoreNLP"
