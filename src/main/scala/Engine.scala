@@ -3,7 +3,7 @@ package org.example.classification
 import org.apache.predictionio.controller.EngineFactory
 import org.apache.predictionio.controller.Engine
 
-case class Query(
+class Query(
   val text: String,
   val replyTo: Option[String],
   val gender: Option[Number],
@@ -12,22 +12,20 @@ case class Query(
   val platform: Option[String]
 ) extends Serializable
 
-
-case class ActualResult(
- val queryResults: String
-) extends Serializable
-
-case class PredictedResult(
+class PredictedResult(
   val queryResults: String
 ) extends Serializable
 
+class ActualResult(
+  val queryResults: String
+) extends Serializable
 
 object ClassificationEngine extends EngineFactory {
   def apply() = {
     new Engine(
       classOf[DataSource],
       classOf[Preparator],
-     Map("als" -> classOf[NLPAlgorithm]),
+      Map("als" -> classOf[NLPAlgorithm]),
       classOf[Serving])
   }
 }
