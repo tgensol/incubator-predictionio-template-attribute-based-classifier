@@ -26,3 +26,4 @@ object ClassificationEngine extends EngineFactory {
      Map("als" -> classOf[NLPAlgorithm]),
       classOf[Serving])
   }
+}
