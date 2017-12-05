@@ -1,7 +1,7 @@
 package org.apache.spark.mllib.classification
 
 
-import org.template.classification.AlgorithmParams
+import org.example.classification.AlgorithmParams
 
 import org.apache.predictionio.controller.IPersistentModel
 import org.apache.predictionio.controller.IPersistentModelLoader
