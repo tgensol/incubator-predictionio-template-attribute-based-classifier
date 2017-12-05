@@ -6,8 +6,8 @@ import org.apache.predictionio.controller.Engine
 class Query(
   val text: String,
   val replyTo: Option[String],
-  val gender: Option[String],
-  val bdate: Option[String],
+  val gender: Option[Number],
+  val bdate: Option[Number],
   val lang: Option[String],
   val platform: Option[String]
 ) extends Serializable

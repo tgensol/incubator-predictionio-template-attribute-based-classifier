@@ -80,11 +80,11 @@ class NLPAlgorithm(val ap: AlgorithmParams)
 
 
     var line = "\t" + query.text + "\t"
-    if (query.gender.isEmpty) line += "unknown"
+    if (query.gender.isEmpty) line += -1
     line += query.gender + "\t"
     if (query.replyTo.isEmpty) line += "unknown"
     line += query.replyTo + "\t"
-    if (query.bdate.isEmpty) line += "unknown"
+    if (query.bdate.isEmpty) line += -1
     line += query.bdate + "\t"
     if (query.lang.isEmpty) line += "unknown"
     line += query.lang + "\t";

@@ -38,8 +38,8 @@ class DataSource(val dsp: DataSourceParams)
           text_type = event.entityId,
           text = event.properties.get[String]("text"),
           replyTo = event.properties.getOpt[String]("replyTo"),
-          gender = event.properties.getOpt[String]("gender"),
-          bdate = event.properties.getOpt[String]("bdate"),
+          gender = event.properties.getOpt[Number]("gender"),
+          bdate = event.properties.getOpt[Number]("bdate"),
           lang = event.properties.getOpt[String]("lang"),
           platform = event.properties.getOpt[String]("platform")
         ) 
@@ -71,8 +71,8 @@ class DataSource(val dsp: DataSourceParams)
           text_type = event.entityId,
           text = event.properties.get[String]("text"),
           replyTo = event.properties.getOpt[String]("replyTo"),
-          gender = event.properties.getOpt[String]("gender"),
-          bdate = event.properties.getOpt[String]("bdate"),
+          gender = event.properties.getOpt[Number]("gender"),
+          bdate = event.properties.getOpt[Number]("bdate"),
           lang = event.properties.getOpt[String]("lang"),
           platform = event.properties.getOpt[String]("platform")
         ) 
@@ -103,8 +103,8 @@ case class TextClass(
   val text_type: String,
   val text: String,
   val replyTo: Option[String],
-  val gender: Option[String],
-  val bdate: Option[String],
+  val gender: Option[Number],
+  val bdate: Option[Number],
   val lang: Option[String],
   val platform: Option[String]
 )
